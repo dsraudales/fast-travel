@@ -1,0 +1,122 @@
+/* LIBRERÍA */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+/* CSS GENERALES */
+
+*{
+    text-decoration: none;
+  }
+  body {
+      background-color: #002c9e;
+      margin:0px;
+      font-family: 'Ubuntu', sans-serif;
+      background-size: 100% 110%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      padding:0;
+      color:#FFF;
+    }
+    .login {
+      margin:0 auto;
+      max-width:500px;
+    }
+    .login-header {
+      color:#fff;
+      text-align:center;
+      font-size:200%;
+    }
+    
+    .login-form {
+      background:#f4f4f4;
+      border-radius:10px;
+    }
+    .login-form h3 {
+      text-align:left;
+      margin-left:40px;
+      color:#fff;
+    }
+  
+    .login-form h6 {
+      font-size: 0.8em;
+    }
+  
+    .login-form {
+      box-sizing:border-box;
+      padding: 50px;
+      margin:5% auto;
+      text-align:center;
+    }
+    .login input[type="text"],
+    .login input[type="password"],
+    .login input[type="email"] {
+      max-width:400px;
+      width: 80%;
+      line-height:4em;
+      font-family: 'Ubuntu', sans-serif;
+      margin:2em 2em;
+      border-radius:5px;
+      border:2px solid #f2f2f2;
+      outline:none;
+      padding-left:10px;
+    }
+    .login-form input[type="button"] {
+      height:30px;
+      width:100px;
+      background:#FFF;
+      border:1px solid #F2F2F2;
+      border-radius:20px;
+      color: slategrey;
+      text-transform:uppercase;
+      font-family: 'Ubuntu', sans-serif;
+      cursor:pointer;
+    }
+    .sign-up{
+      color:#F2F2F2;
+      margin-left:-70%;
+      cursor:pointer;
+      text-decoration:underline;
+    }
+    .no-access {
+      color:#002c9e;
+      margin:20px 260px 0px 20px;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+    .try-again {
+      color:#F2F2F2;
+      text-decoration:underline;
+      cursor:pointer;
+    }
+  
+    button {
+      background-color: #f2f2f2;
+      color: #000000;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      /*border-radius: 15%;*/
+      cursor: pointer;
+      /*width: 20%;*/
+    }
+  
+    .form-group {
+      color: #002c9e;
+    }
+
+    a {
+        color: #002c9e;
+    }
+    
+    /*Media Querie*/
+    @media only screen and (min-width : 150px) and (max-width : 530px){
+      .login-form h3 {
+        text-align:center;
+        margin:0;
+      }
+      .sign-up, .no-access {
+        margin:10px 0;
+      }
+      .login-button {
+        margin-bottom:10px;
+      }
+    }
