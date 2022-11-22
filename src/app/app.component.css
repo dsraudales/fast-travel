@@ -63,6 +63,13 @@ body{
 }
 
 .container{
+    /*width: 100%;*/
+    max-width: 1200px;
+    height: 230px;
+    display: grid;
+    flex-wrap: wrap;
+    /*justify-content: center;*/
+    margin: auto;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 50px;
 }
