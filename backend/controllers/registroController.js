@@ -32,14 +32,41 @@ const getAlumno = async (req, res) => {
 const nuevoRegistro = async (req, res) => {
     const {idAlumno, idRecorrido} = req.body;
     try {
-        const pool = await sql.connect(db);
-        const result = await pool.request().query(); 
-    } catch (error) {
         
+        const pool = await sql.connect(db);
+        const result = await pool.request().query(`SELECT * FROM Registros WHERE idAlumno = ${idAlumno} AND idRecorrido = ${idRecorrido}`);
+        
+        if(result.recordset[0]){
+            res.send({exito:0,mensaje:'recorrido ya registrado'});
+        }else{
+            const result2 = await pool.request().query(`INSERT INTO Registros(idAlumno, idRecorrido, horaIngreso, horaSalida) VALUES (${idAlumno}, ${idRecorrido}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`);
+            res.send({exito:1,mensaje:'recorrido registrado'});
+        }
+    } catch (error) {
+        res.send({exito:0,mensaje:'error agregando registro'});
+    }
+}
+
+const comprobarRegistro = async (req, res) => {
+    const {idAlumno, idRecorrido} = req.body;
+    try {
+        
+        const pool = await sql.connect(db);
+        const result = await pool.request().query(`SELECT * FROM Registros WHERE idAlumno = ${idAlumno} AND idRecorrido = ${idRecorrido}`);
+        
+        if(result.recordset[0]){
+            res.send({exito:0,mensaje:'recorrido ya registrado'});
+        }else{
+            res.send({exito:1,mensaje:'recorrido no registrado'});
+        }
+    } catch (error) {
+        res.send({exito:0,mensaje:'error buscando registro'});
     }
 }
 
 module.exports = {
     getRegistrosById,
-    getAlumno
+    getAlumno,
+    nuevoRegistro,
+    comprobarRegistro
 }

@@ -20,6 +20,7 @@ export class DetallesComponent implements OnInit {
   }
   alumnoNombre = '';
   alumnoId = '';
+  registrado = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,7 +29,6 @@ export class DetallesComponent implements OnInit {
 
   ngOnInit(): void {
     this.comprobarUsuario();
-    this.getIdRecorrido();
   }
 
   getIdRecorrido(){
@@ -52,6 +52,7 @@ export class DetallesComponent implements OnInit {
       if (data) {
         this.alumnoNombre = data.alumno[0].nombre;
         this.alumnoId = data.alumno[0].idAlumno;
+        this.getIdRecorrido();
         console.log(data.mensaje);
       }
       else {
@@ -66,6 +67,44 @@ export class DetallesComponent implements OnInit {
       (data) => {
         if (data) {
           this.recorrido = data.recorrido[0];
+          this.comprobarEstado();
+          console.log(data.mensaje);
+        } else {
+          console.log(data.mensaje);
+        }
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  comprobarEstado(){
+    var datos = {
+      idAlumno: this.alumnoId,
+      idRecorrido: this.id
+    }
+    console.log(datos)
+    this.rutasService.comprobarRegistro(datos).subscribe(
+      (data) => {
+        if (data.exito) {
+          console.log(data.mensaje);
+        } else {
+          this.registrado = 1;
+          console.log(data.mensaje);
+        }
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  nuevoRegistro(){
+    var datos = {
+      idAlumno: this.alumnoId,
+      idRecorrido: this.id
+    }
+    this.rutasService.nuevoRegistro(datos).subscribe(
+      (data) => {
+        if (data.exito) {
+          this.registrado = 1;
           console.log(data.mensaje);
         } else {
           console.log(data.mensaje);

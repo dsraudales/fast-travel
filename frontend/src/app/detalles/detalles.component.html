@@ -50,7 +50,8 @@
                     <p><b>NOMBRE: {{alumnoNombre}}</b></p>
                     <p><b>IDALUMNO: {{alumnoId}}</b></p>
                     <p><b>PRECIO: L{{recorrido.precio}}</b></p>
-                    <a href="#">CONFIRMAR</a>
+                    <button *ngIf="registrado==0" (click)="nuevoRegistro()">CONFIRMAR</button>
+                    <p *ngIf="registrado==1"><b>RECORRIDO REGISTRADO</b></p>
                 </div>
             </div>
         </div>

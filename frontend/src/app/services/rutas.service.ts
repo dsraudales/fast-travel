@@ -26,4 +26,14 @@ export class RutasService {
 
     return this.http.post(this.url+'/api/registros/alumno/', req_body);
   };
+
+  nuevoRegistro(req_body : any):Observable<any> {
+
+    return this.http.post(this.url+'/api/registros/nuevoregistro/', req_body);
+  };
+
+  comprobarRegistro(req_body : any):Observable<any> {
+
+    return this.http.post(this.url+'/api/registros/comprobarregistro/', req_body);
+  };
 }

@@ -6,5 +6,7 @@ const registroController = require('../controllers/registroController');
 
 router.get('/alumnoreg/:id', registroController.getRegistrosById);
 router.post('/alumno/', registroController.getAlumno);
+router.post('/nuevoregistro', registroController.nuevoRegistro);
+router.post('/comprobarregistro', registroController.comprobarRegistro);
 
 module.exports = router;
