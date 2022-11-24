@@ -34,28 +34,9 @@ export class LandingComponent implements OnInit {
   }
 
   comprobarUsuario(){
-    if(localStorage.getItem('usuario')){
-      this.getAlumno();
-    }else{
+    if(!localStorage.getItem('usuario')){
       this._router.navigate(['login']);
     }
-  }
-
-  getAlumno(){
-    var data = {
-      correo: localStorage.getItem("usuario")!.replace(/"/g,'')
-    }
-    this.rutasService.getAlumno(data).subscribe(data => {
-      if (data) {
-        this.alumnoNombre = data.alumno[0].nombre;
-        this.alumnoId = data.alumno[0].idAlumno;
-        console.log(data.mensaje);
-      }
-      else {
-        console.log(data.mensaje);
-      }
-
-    }, err => console.log(err));
   }
 
   getRecorridos(){
