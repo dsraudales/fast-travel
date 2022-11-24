@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es-HN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Fast Travel</title>
+  <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/ext/bootstrap.css">
+    <link rel="stylesheet" href="/static/ext/estilos.css">
+    <link rel="stylesheet" href="/static/ext/login.css">
+    <link rel="stylesheet" href="/static/ext/index.css">
+    <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.2.0/js/msal.js"></script>
+</head>
+
+<body>
+  <!-- <div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+      <div class="user_card">
+        <div class="d-flex justify-content-center">
+          <div class="brand_logo_container">
+            <img src="/static/img/Logo-Fast-Travel.jpg" width="100" height="100">
+            <h1 class="centrar-texto" style="color:#000000">INICIAR SESIÓN CON:</h1>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center form_container">
+          <form>
+            <div class="input-group mb-3">
+              <div class="d-flex justify-content-center mt-3 login_container">
+                <button type="button" name="button" class="btn login_btn">Microsoft 365</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="mt-4">
+          <div class="d-flex justify-content-center links">
+            ¿PROBLEMAS?, ESCRÍBENOS:
+          </div>
+          <div class="d-flex justify-content-center links">
+            <a href="#">soportefastravel@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="login">
+    <div class="login-header">
+      <img src="../../../assets/Logo-Fast-Travel.jpg" width="100" height="100">
+    </div>
+      <div class="login-form">
+        <h1 class="centrar-texto" style="color:#000000"><b>INICIAR SESIÓN CON:</b></h1>
+        <button type="button" (click)="login()">
+          <input type="image" src="../../../assets/Logo-Office-365.png" width="150" height="auto"/>
+        </button>
+        <!-- <button type="button" name="button" class="button">Microsoft 365</button> -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="form-group">
+          <span><b>¿PROBLEMAS?, ESCRÍBENOS A:</b> <a a href="#">soportefastravel@gmail.com</a></span>
+        </div>
+      </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+.centrar-texto{
+    text-align:center;
+    padding:15px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+    padding-left: 50px;
+    justify-content: space-between;
+}
