@@ -10,3 +10,30 @@
     padding-left: 50px;
     justify-content: space-between;
 }
+
+.user-menu ul {
+  list-style: outside none none;
+  margin: 0;
+  padding: 0;
+}
+.user-menu li {
+  display: inline-block;
+}
+.user-menu li a {
+  display: block;
+  font-size: 15px;
+  margin-right: 5px;
+  padding: 10px;
+  justify-content: space-between;
+}
+.user-menu li a i.fa {
+  margin-right: 5px;
+}
+
+.header-area {
+  background: none repeat scroll 0 0 #f4f4f4;
+  padding:15px;
+}
+.header-area a {
+  color: #000;
+}

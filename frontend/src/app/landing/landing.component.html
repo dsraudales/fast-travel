@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="es-HN">
-    
 
 <head>
     <meta charset="utf-8">
@@ -34,24 +31,33 @@
 
 <body>
     <!-- Header -->
-    <app-header></app-header>
+    <header>
+        <div class="sample-header">
+            <div class="sample-header-section" style="background-color:#002c9e;">
+                <div class="logo">
+                    <img src="../../../assets/Logo-Fast-Travel.jpg" width="60" height="60">
+                        <h1 class="centrar-texto" style="color:#FFFFFF"><b>UNAH - CIUDAD UNIVERSITARIA</b></h1>
+                    <img src="../../../assets/Logo-UNAH-(Blanco).png" style="float:right" width="95" height="60">
+                </div>
+            </div>
 
-    <div class="container">
-        <div class="frame-item">
-            <h1 class="centrar-texto">
-                RUTAS DISPONIBLES DEL DÍA
-            </h1>
-            <div class="container">
-                <div class="card" *ngFor="let rec of allRecorridos">
-                    <h4>RUTA: {{rec.nombreRuta}}</h4>
-                    <p>{{rec.nombreRuta}}</p>
-                    <p>HORA:</p>
-                    <p>{{rec.horaEntrada | date:'shortTime'}}</p>
-                    <a (click)="Detalles(rec.idRecorrido)">Detalles</a>
+            <div class="header-area">
+                <div class="container-nav">
+                    <div class="row">
+                        <div class="col-md-8">
+
+                            <!-- Login -->
+                            <div class="user-menu">
+                                <ul>
+                                    <li><a ><i class="fa fa-user"></i>Bienvenido(a) {{alumnoNombre}}</a></li>
+                                    <li><a (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Salir</a></li>
+
+                                </ul>
+                              <!--AQUÍ VA ESTAR EL BUSCADOR (PENDIENTE) -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-</html>
+    </header>
