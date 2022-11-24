@@ -18,10 +18,24 @@ const getAlumno = async (req, res) => {
     try {
         const pool = await sql.connect(db);
         const result = await pool.request().query(`SELECT idAlumno, CONCAT(nombre,' ',apellido) nombre from Alumnos WHERE email = '${correo}'`);
-        res.send({mensaje:'Alumno encontrado', alumno:result.recordset});
+        if(result.recordset[0]){
+            res.send({encontrado:1, mensaje:'Alumno encontrado', alumno:result.recordset});
+        }else{
+            res.send({encontrado:0, mensaje:'Alumno no encontrado'});
+        }
     } catch (error) {
         res.send({mensaje:'error al buscar alumno'})
         console.log(err);
+    }
+}
+
+const nuevoRegistro = async (req, res) => {
+    const {idAlumno, idRecorrido} = req.body;
+    try {
+        const pool = await sql.connect(db);
+        const result = await pool.request().query(); 
+    } catch (error) {
+        
     }
 }
 
