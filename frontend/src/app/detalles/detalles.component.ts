@@ -21,6 +21,7 @@ export class DetallesComponent implements OnInit {
   alumnoNombre = '';
   alumnoId = '';
   registrado = 0;
+  noRegistrado = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -67,7 +68,9 @@ export class DetallesComponent implements OnInit {
       (data) => {
         if (data) {
           this.recorrido = data.recorrido[0];
-          this.comprobarEstado();
+          if(id<6000){
+            this.comprobarEstado();
+          }
           console.log(data.mensaje);
         } else {
           console.log(data.mensaje);
@@ -86,6 +89,7 @@ export class DetallesComponent implements OnInit {
     this.rutasService.comprobarRegistro(datos).subscribe(
       (data) => {
         if (data.exito) {
+          this.noRegistrado = 1;
           console.log(data.mensaje);
         } else {
           this.registrado = 1;

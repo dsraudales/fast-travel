@@ -51,16 +51,24 @@ const getRecorridosByRuta = async (req, res) => {
 }
 
 const getRecorridoById = async (req, res) => {
-    const idRecorrido = req.params.id;
+    const idRecorrido = parseInt(req.params.id);
     try {
         const pool = await sql.connect(db);
-        const result = await pool.request().query(`select r.*, p.*, rut.* FROM Recorridos r 
-        INNER JOIN Puntos p ON p.idRuta = r.idRuta 
-        INNER JOIN Rutas rut ON r.idRecorrido = ${idRecorrido} AND p.final = 1`);
-        res.send({mensaje:'Recorrido encontrado', recorrido:result.recordset});
+        if(4000<=idRecorrido && idRecorrido<5000){
+            const result = await pool.request().query(`select r.*, p.*, rut.* FROM Recorridos r 
+            INNER JOIN Puntos p ON p.idRuta = r.idRuta 
+            INNER JOIN Rutas rut ON r.idRecorrido = ${idRecorrido} AND p.final = 1`);
+            res.send({mensaje:'Recorrido encontrado', recorrido:result.recordset});
+        }else if(6000<=idRecorrido && idRecorrido<7000){
+            const result = await pool.request().query(`select r.*, p.*, rut.* FROM Registros reg 
+            INNER JOIN Recorridos r ON reg.idRecorrido = r.idRecorrido 
+            INNER JOIN Rutas rut ON rut.idRuta = r.idRuta 
+            INNER JOIN Puntos p ON p.idRuta = rut.idRuta WHERE reg.idRegistro = ${idRecorrido} AND p.final = 1`);
+            res.send({mensaje:'Recorrido encontrado', recorrido:result.recordset});
+        }
     } catch (error) {
-        res.send({mensaje:'error al buscar recorridos'})
-        console.log(err);
+        res.send({mensaje:'error al buscar recorrido'})
+        console.log(error);
     }
 }
 

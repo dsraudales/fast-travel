@@ -55,7 +55,7 @@
                     <p><b>NOMBRE: {{alumnoNombre}}</b></p>
                     <p><b># CUENTA DEL ALUMNO: {{alumnoId}}</b></p>
                     <p><b>PRECIO: L{{recorrido.precio}}</b></p>
-                    <button *ngIf="registrado==0" (click)="nuevoRegistro()">CONFIRMAR</button>
+                    <button *ngIf="noRegistrado==1" (click)="nuevoRegistro()">CONFIRMAR</button>
                     <p *ngIf="registrado==1"><b>¡REGISTRO AGREGADO!</b></p>
                 </div>
             </div>

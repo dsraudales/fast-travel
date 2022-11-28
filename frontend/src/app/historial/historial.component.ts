@@ -18,7 +18,7 @@ allRecorridos = [
   {
     nombreRuta: '',
     horaIngreso: '',
-    idRecorrido: '',
+    idRegistro: '',
     precio: ''
   }
 ];
