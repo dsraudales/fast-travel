@@ -1,6 +1,15 @@
-<app-header></app-header>
+<!DOCTYPE html>
+<html lang="es-HN">
 
-<div class="col-11" style="cursor: pointer;" routerLink="/landing">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fast Travel | Historial</title>
+</head>
+
+<body>
+<!-- <div class="col-11" style="cursor: pointer;" routerLink="/landing">
     <div mat-raised-button class="float-left" matTooltip="Regresar" aria-label="Pulsa el boton para cancelar"
         style="width: 50px ; height: 50px ; background-color: black; border-radius: 100% ; margin-left: auto;">
         <svg style="color:white" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -8,21 +17,24 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
     </div>
-</div>
+</div> -->
 
+  <!-- Header -->
+  <app-header></app-header>
 <div class="frame-item">
     <h1 class="centrar-texto">
-        HISTORIAL 
+        HISTORIAL
     </h1>
 </div>
 <div class="container">
     <div class="container">
         <div class="card" *ngFor="let rec of allRecorridos">
             <h4>RUTA: {{rec.nombreRuta}}</h4>
-            <p>PRECIO: L{{rec.precio}}</p>
-            <p>FECHA:</p>
-            <p>{{rec.horaIngreso | date:'shortDate'}}</p>
-            <button class="button button2" (click)="Detalles(rec.idRegistro)">Detalles</button>
+            <p>{{rec.nombreRuta}}</p>
+            <p>HORA:</p>
+            <p>{{rec.horaIngreso | date:'shortTime'}}</p>
         </div>
     </div>
 </div>
+</body>
+</html>
