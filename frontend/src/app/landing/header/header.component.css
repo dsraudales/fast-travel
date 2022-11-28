@@ -5,9 +5,19 @@
 
 .button{
   text-align: end;
+  border-radius: 20px;
+  padding: 10px 15px;
+  border: none;
+  background: #DDDDDD;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
 }
 
-
+.button-header:hover {
+  background-color: #002c9e;
+  color:#FFFFFF;
+}
 
 .logo{
     display: flex;
@@ -37,12 +47,19 @@
   margin-right: 5px;
 }
 
-
-
 .header-area {
   background: none repeat scroll 0 0 #f4f4f4;
   padding:15px;
 }
 .header-area a {
   color: #000;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-link .hover {
+  text-decoration: none;
 }
