@@ -19,9 +19,9 @@
     <div class="container">
         <div class="card" *ngFor="let rec of allRecorridos">
             <h4>RUTA: {{rec.nombreRuta}}</h4>
-            <p>{{rec.nombreRuta}}</p>
-            <p>HORA:</p>
-            <p>{{rec.horaEntrada | date:'shortTime'}}</p>
+            <p>PRECIO: L{{rec.precio}}</p>
+            <p>FECHA:</p>
+            <p>{{rec.horaIngreso | date:'shortDate'}}</p>
             <button class="button button2" (click)="Detalles(rec.idRecorrido)">Detalles</button>
         </div>
     </div>

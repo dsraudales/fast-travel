@@ -17,14 +17,15 @@ alumnoId = '';
 allRecorridos = [
   {
     nombreRuta: '',
-    horaEntrada: '',
-    idRecorrido: ''
+    horaIngreso: '',
+    idRecorrido: '',
+    precio: ''
   }
 ];
 
 ngOnInit(): void {
   this.comprobarUsuario();
-  this.getRecorridos();
+  this.getHistorial();
 }
 
 Detalles(id: string){
@@ -34,15 +35,17 @@ Detalles(id: string){
 comprobarUsuario(){
   if (!localStorage.getItem('usuario')) {
     this._router.navigate(['login']);
+  }else{
+    this.alumnoId = localStorage.getItem('usuario')!;
   }
 }
 
-getRecorridos(){
-  this.rutasService.getRecorridos().subscribe(data => {
+getHistorial(){
+  this.rutasService.getHistorial(2001).subscribe(data => {
 
     if (data) {
-      this.allRecorridos = data.recorridos;
-      console.log(data.mensaje);
+      this.allRecorridos = data.historial;
+      console.log(data);
     }
     else {
       console.log(data.mensaje);

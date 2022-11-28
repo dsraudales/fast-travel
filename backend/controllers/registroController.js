@@ -25,7 +25,7 @@ const getAlumno = async (req, res) => {
         }
     } catch (error) {
         res.send({mensaje:'error al buscar alumno'})
-        console.log(err);
+        console.log(error);
     }
 }
 
@@ -64,9 +64,29 @@ const comprobarRegistro = async (req, res) => {
     }
 }
 
+const getHistorial = async (req, res) => {
+    const idAlumno = req.params.id;
+    try {
+        const pool = await sql.connect(db);
+        const result = await pool.request().query(`SELECT reg.idRegistro, reg.horaIngreso, r.precio, rut.* FROM Registros reg 
+        INNER JOIN Recorridos r ON reg.idRecorrido = r.idRecorrido 
+        INNER JOIN Rutas rut ON rut.idRuta = r.idRuta AND idAlumno = ${idAlumno}`);
+        if(result.recordset[0]){
+            res.send({exito:1, encontrado:1, historial:result.recordset, mensaje:'historial encontrado'});
+        }else{
+            res.send({exito:1, encotrado:0, mensaje:'Historial vacio'});
+        }
+        
+    } catch (error) {
+        res.send({mensaje:'error obteniendo historial'})
+        
+    }
+}
+
 module.exports = {
     getRegistrosById,
     getAlumno,
     nuevoRegistro,
-    comprobarRegistro
+    comprobarRegistro,
+    getHistorial
 }

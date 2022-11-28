@@ -17,6 +17,12 @@ export class RutasService {
 
   };
 
+  getHistorial(id: number):Observable<any> {
+
+    return this.http.get(this.url+`/api/registros/historial/${id}`);
+
+  };
+
   getRecorridoDetalle(id: number):Observable<any> {
 
     return this.http.get(this.url+`/api/recorridos/recorrido/${id}`);
