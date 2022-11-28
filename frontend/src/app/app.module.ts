@@ -11,6 +11,8 @@ import { DetallesComponent } from './detalles/detalles.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './landing/header/header.component';
 import { InteractionType, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
+import { ModalUbicacionComponent } from './modal-ubicacion/modal-ubicacion.component';
+import { HistorialComponent } from './historial/historial.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -30,6 +32,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     DetallesComponent,
     LoginComponent,
     HeaderComponent,
+    ModalUbicacionComponent,
+    HistorialComponent,
   ],
   imports: [
     BrowserModule,

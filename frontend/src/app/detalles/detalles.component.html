@@ -27,10 +27,19 @@
 
 
 </head>
+<!-- Header -->
+<app-header></app-header>
 
-<body>
-    <!-- Header -->
-    <app-header></app-header>
+    <div class="col-11" style="cursor: pointer;" routerLink="/landing">
+        <div mat-raised-button class="float-left" matTooltip="Regresar" aria-label="Pulsa el boton para cancelar"
+            style="width: 50px ; height: 50px ; background-color: black; border-radius: 100% ; margin-left: auto;">
+            <svg style="color:white" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+
 
     <div class="container-detalles">
         <div class="frame-item">
@@ -40,14 +49,14 @@
             <div class="container-detalles">
                 <div class="card-detalles">
                     <h2><b>RUTA: {{recorrido.nombreRuta}}</b></h2>
-                    <p><b>IDRECORRIDO: {{recorrido.idRecorrido}}</b></p>
+                    <p><b>RECORRIDO #: {{recorrido.idRecorrido}}</b></p>
                     <p><b>HORA: {{recorrido.horaSalida | date: 'shortTime'}}</b></p>
                     <p><b>PARADA: {{recorrido.nombre}}</b></p>
                     <p><b>NOMBRE: {{alumnoNombre}}</b></p>
-                    <p><b>IDALUMNO: {{alumnoId}}</b></p>
+                    <p><b># CUENTA DEL ALUMNO: {{alumnoId}}</b></p>
                     <p><b>PRECIO: L{{recorrido.precio}}</b></p>
                     <button *ngIf="registrado==0" (click)="nuevoRegistro()">CONFIRMAR</button>
-                    <p *ngIf="registrado==1"><b>RECORRIDO REGISTRADO</b></p>
+                    <p *ngIf="registrado==1"><b>¡REGISTRO AGREGADO!</b></p>
                 </div>
             </div>
         </div>
@@ -57,6 +66,6 @@
             <p><b>Recuerda:</b> Portar siempre tu carnet, forma 03 ó DNI.</p>
         </h3>
     </div>
-</body>
+
 
 </html>

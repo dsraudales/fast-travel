@@ -1,6 +1,6 @@
 const config = {
     user : 'sa',
-    password : 'Pipo0030',
+    password : '1234',
     server : 'localhost',
     database : 'FastTravel',
     options : {

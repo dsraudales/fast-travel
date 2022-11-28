@@ -6,6 +6,37 @@
     padding:15px;
 }
 
+.a{
+    cursor: pointer;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #0300ba;
+  }
+  
+  .button2:hover {
+    background-color: #0300ba;
+    color: white;
+  }
+  
+
+
+
 .logo{
     display: flex;
     align-items: center;
@@ -37,6 +68,7 @@ nav.nav-items > .nav-item {
   /*height: 230px;*/
   /*justify-content: center;*/
   margin: auto;
+  cursor: pointer;
 }
 
 /* AQUÍ EMPIEZAN LOS ESTILOS PARA LAS TARGETAS */

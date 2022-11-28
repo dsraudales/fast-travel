@@ -3,6 +3,10 @@
     padding:15px;
 }
 
+.button{
+  text-align: end;
+}
+
 .logo{
     display: flex;
     align-items: center;
@@ -12,6 +16,7 @@
 }
 
 .user-menu ul {
+  cursor: pointer;
   list-style: outside none none;
   margin: 0;
   padding: 0;

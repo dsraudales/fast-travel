@@ -6,6 +6,8 @@ import { AccesoComponent } from './acceso/acceso.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './landing/header/header.component';
+import { ModalUbicacionComponent } from './modal-ubicacion/modal-ubicacion.component';
+import { HistorialComponent } from './historial/historial.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'detalles/:id', component: DetallesComponent },
   { path: 'login', component: LoginComponent },
   { path: 'header', component: HeaderComponent},
+  { path: 'modal-ubicacion', component: ModalUbicacionComponent},
+  { path: 'historial', component: HistorialComponent},
   { path: '**', component: LandingComponent },
 
 ];

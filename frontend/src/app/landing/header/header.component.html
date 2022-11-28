@@ -1,9 +1,11 @@
+<!DOCTYPE html>
+<html lang="es-HN">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fast Travel</title>
+    <title>Fast Travel | Detalles</title>
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
@@ -22,10 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="/static/ext/bootstrap.css">
-    <link rel="stylesheet" href="/static/ext/estilos.css">
-    <link rel="stylesheet" href="/static/ext/index.css">
+
 
 </head>
 
@@ -51,7 +50,11 @@
                                 <ul>
                                     <li><a ><i class="fa fa-user"></i>Bienvenido(a) {{alumnoNombre}}</a></li>
                                     <li><a (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Salir</a></li>
-
+                                    <li><a routerLink="/historial"><i class="button"style="float:right"></i>Historial</a></li>
+                                    <button (click)="modal.showModal()">Ubicacion</button>
+                                    <app-modal-ubicacion [title]="'Ubicacion Predeterminada'" #modal>
+                                        HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+                                    </app-modal-ubicacion>
                                 </ul>
                               <!--AQUÍ VA ESTAR EL BUSCADOR (PENDIENTE) -->
                             </div>
