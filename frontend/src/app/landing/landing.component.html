@@ -41,7 +41,7 @@
         <h4>RUTA: {{rec.nombreRuta}}</h4>
         <p>{{rec.nombreRuta}}</p>
         <p>HORA:</p>
-        <p>{{rec.horaEntrada | date:'shortTime'}}</p>
+        <p>{{rec.horaSalida/100}}:00</p>
         <button class="button button-detalles"><a (click)="Detalles(rec.idRecorrido)"><b>DETALLES</b></a></button>
       </div>
 

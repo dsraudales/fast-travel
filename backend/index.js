@@ -1,5 +1,6 @@
 const express = require('express');
-const db = require('./config/db.js');
+const cron = require('node-cron');
+const recorridos = require('./controllers/recorridoController');
 const bodyParser= require('body-parser');
 const cors = require('cors');
 
@@ -12,6 +13,28 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 app.use('/api/recorridos', require('./routes/recorridos'));
 app.use('/api/registros', require('./routes/registros'));
+
+
+cron.schedule('1 0 * * *', () => {
+    recorridos.generarRecorridos();
+});
+
+
+recorridos.generarRecorridos();
+
+/*
+CROME JOB TIME
+"* * * * * *"
+ | | | | | |
+ | | | | | |
+ | | | | | day of week
+ | | | | month
+ | | | day of month
+ | | hour
+ | minute
+ second(optional)
+*/
+
 
 app.listen(3000, ()=>{
     console.log('servidor corriendo');

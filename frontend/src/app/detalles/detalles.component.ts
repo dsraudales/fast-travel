@@ -12,11 +12,10 @@ export class DetallesComponent implements OnInit {
   id = 0;
   recorrido = {
     idRecorrido: '',
-    horaEntrada: '',
-    horaSalida: '',
+    horaEntrada: 0,
+    horaSalida: 0,
     precio: '',
-    nombreRuta: '',
-    nombre: ''
+    nombreRuta: ''
   }
   alumnoNombre = '';
   alumnoId = '';
@@ -71,7 +70,7 @@ export class DetallesComponent implements OnInit {
           if(id<6000){
             this.comprobarEstado();
           }
-          console.log(data.mensaje);
+          console.log(data);
         } else {
           console.log(data.mensaje);
         }
@@ -85,7 +84,7 @@ export class DetallesComponent implements OnInit {
       idAlumno: this.alumnoId,
       idRecorrido: this.id
     }
-    console.log(datos)
+    //console.log(datos)
     this.rutasService.comprobarRegistro(datos).subscribe(
       (data) => {
         if (data.exito) {
@@ -108,6 +107,7 @@ export class DetallesComponent implements OnInit {
     this.rutasService.nuevoRegistro(datos).subscribe(
       (data) => {
         if (data.exito) {
+          this.noRegistrado = 0;
           this.registrado = 1;
           console.log(data.mensaje);
         } else {

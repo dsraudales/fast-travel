@@ -19,7 +19,7 @@ export class LandingComponent implements OnInit {
   allRecorridos = [
     {
       nombreRuta: '',
-      horaEntrada: '',
+      horaSalida: 0,
       idRecorrido: ''
     }
   ];

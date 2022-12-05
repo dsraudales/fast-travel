@@ -68,7 +68,7 @@ const getHistorial = async (req, res) => {
     const idAlumno = req.params.id;
     try {
         const pool = await sql.connect(db);
-        const result = await pool.request().query(`SELECT reg.idRegistro, reg.horaIngreso, r.precio, rut.* FROM Registros reg 
+        const result = await pool.request().query(`SELECT reg.idRegistro, reg.horaIngreso, rut.precio, rut.* FROM Registros reg 
         INNER JOIN Recorridos r ON reg.idRecorrido = r.idRecorrido 
         INNER JOIN Rutas rut ON rut.idRuta = r.idRuta AND idAlumno = ${idAlumno}`);
         if(result.recordset[0]){

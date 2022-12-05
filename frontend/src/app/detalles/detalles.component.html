@@ -50,8 +50,8 @@
                 <div class="card-detalles">
                     <h2><b>RUTA: {{recorrido.nombreRuta}}</b></h2>
                     <p><b>IDRECORRIDO: {{recorrido.idRecorrido}}</b></p>
-                    <p><b>HORA: {{recorrido.horaSalida | date: 'shortTime'}}</b></p>
-                    <p><b>PARADA: {{recorrido.nombre}}</b></p>
+                    <p><b>HORA: {{recorrido.horaSalida/100}}:00</b></p>
+                    <p><b>PARADA: {{recorrido.nombreRuta}}</b></p>
                     <p><b>NOMBRE: {{alumnoNombre}}</b></p>
                     <p><b>IDALUMNO: {{alumnoId}}</b></p>
                     <p><b>PRECIO: L{{recorrido.precio}}</b></p>
