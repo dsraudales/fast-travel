@@ -39,5 +39,12 @@ export class HeaderComponent implements OnInit {
 
     }, err => console.log(err));
   }
+  displayStyle = "none";
 
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }
