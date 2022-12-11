@@ -44,13 +44,13 @@
                             <!-- Login -->
                             <div class="user-menu">
                                 <ul>
-                                    <li><button class="button button-header"><i class="fa fa-user"></i>&nbsp;&nbsp;Bienvenido (a) {{alumnoNombre}}</button></li>
+                                    <li><button class="button button-header" routerLink="/landing"><i class="fa fa-user"></i>&nbsp;&nbsp;Bienvenido (a) {{alumnoNombre}}</button></li>
                                     <li><button  class="button button-header" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Salir</button></li>
                                     <li><button class="button button-header" routerLink="/historial"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;Historial</button></li>
-                                    <li><button class="button button-header" (click)="modal.showModal()"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Ubicación</button></li>
+                                    <!--<li><button class="button button-header" (click)="modal.showModal()"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Ubicación</button></li>
                                     <app-modal-ubicacion [title]="'Ubicacion Predeterminada'" #modal>
                                         FAST TRAVEL
-                                    </app-modal-ubicacion>
+                                    </app-modal-ubicacion>-->
                                     <li><button class="button button-header" routerLink="/landing"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Volver a Inicio</button></li>
                                 </ul>
                               <!--AQUÍ VA ESTAR EL BUSCADOR (PENDIENTE) -->

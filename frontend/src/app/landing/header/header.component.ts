@@ -12,21 +12,21 @@ export class HeaderComponent implements OnInit {
   alumnoNombre = '';
 
   constructor(
-    private rutasService : RutasService,
-    private _router : Router) { }
+    private rutasService: RutasService,
+    private _router: Router) { }
 
   ngOnInit(): void {
     this.getAlumno();
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     this._router.navigate(['login']);
   }
 
-  getAlumno(){
+  getAlumno() {
     var data = {
-      correo: localStorage.getItem("usuario")!.replace(/"/g,'')
+      correo: localStorage.getItem("usuario")!.replace(/"/g, '')
     }
     this.rutasService.getAlumno(data).subscribe(data => {
       if (data) {
@@ -39,5 +39,16 @@ export class HeaderComponent implements OnInit {
 
     }, err => console.log(err));
   }
+
+  displayStyle = "none";
+
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
+
+
 
 }
