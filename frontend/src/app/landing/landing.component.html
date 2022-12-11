@@ -31,6 +31,37 @@
   <!-- Header -->
   <app-header></app-header>
   <div class="frame-item">
+
+    <!-- AQUÍ EMPIEZA LA VENTANA EMERGENTE (MODAL) -->
+    <button class="button button-header" (click)="openPopup()"><i class="fa fa-map-marker"
+        aria-hidden="true"></i>&nbsp;&nbsp;Ubicación
+    </button>
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: 	#EFB810">
+            <h4 class="modal-title" style="font-weight: bold">Fast Travel</h4>
+          </div>
+          <div class="modal-body">
+            <p  style="font-weight: bold">ESCOGER UBICACION</p>
+            <div class="form-floating">
+              <input type="ubicacion" class="form-control" id="floatingUbicacion" placeholder="Ingrese aquí su ubicación:">
+              <label for="floatingUbicacion">Ingrese aquí su ubicación:</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="closePopup()">
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AQUÍ FINALIZA LA VENTANA EMERGENTE (MODAL) -->
+
+
+
+
     <h1 class="centrar-texto">
       RUTAS DISPONIBLES DEL DÍA
     </h1>
@@ -48,34 +79,5 @@
     </div>
   </div>
 </body>
-
-<!-- AQUÍ EMPIEZA LA VENTANA EMERGENTE (MODAL) -->
-<!-- <button class="button button-header"
-     (click)="openPopup()"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Ubicación
-     </button>
-     <div
-     class="modal"
-     tabindex="-1"
-     role="dialog"
-     [ngStyle]="{'display':displayStyle}">
-     <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-       <h4 class="modal-title">Fast Travel</h4>
-       </div>
-       <div class="modal-body">
-       <p>POR FAVOR INGRESE SU UBICACIÓN</p>
-          <input type="text" id="ubicacion" name="ubicacion" placeholder="Ingrese aquí su ubicación">
-     </div>
-     <div class="modal-footer">
-     <button type="button" class="btn btn-danger"
-          (click)="closePopup()">
-        Confirmar
-     </button>
-    </div>
-   </div>
-  </div>
-</div> -->
-<!-- AQUÍ FINALIZA LA VENTANA EMERGENTE (MODAL) -->
 
 </html>
