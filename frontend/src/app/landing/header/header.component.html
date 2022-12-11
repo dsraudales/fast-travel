@@ -44,18 +44,43 @@
                             <!-- AQUÍ EMPIEZA EL NAV -->
                             <div class="user-menu">
                                 <ul>
-                                    <li><button class="button button-header" routerLink="/landing"><i class="fa fa-user"></i>&nbsp;&nbsp;Bienvenido (a) {{alumnoNombre}}</button></li>
-                                    <li><button  class="button button-header" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Salir</button></li>
+                                    <li><button class="button button-header"><i class="fa fa-user"></i>&nbsp;&nbsp;Bienvenido (a) {{alumnoNombre}}</button></li>
                                     <li><button class="button button-header" routerLink="/historial"><i class="fa fa-history" aria-hidden="true"></i>&nbsp;&nbsp;Historial</button></li>
-                                    <!--<li><button class="button button-header" (click)="modal.showModal()"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Ubicación</button></li>
-                                    <app-modal-ubicacion [title]="'Ubicacion Predeterminada'" #modal>
-                                        FAST TRAVEL
-                                    </app-modal-ubicacion>-->
-                                    <li><button class="button button-header" routerLink="/landing"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Volver a Inicio</button></li>
+                                    <!-- AQUÍ EMPIEZA LA VENTANA EMERGENTE (MODAL) -->
+                                    <li><button class="button button-header"
+                                    (click)="openPopup()"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Ubicación
+                                    </button></li>
+                                    <div
+                                    class="modal"
+                                    tabindex="-1"
+                                    role="dialog"
+                                    [ngStyle]="{'display':displayStyle}">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h4 class="modal-title">Fast Travel</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                        <p>POR FAVOR INGRESE SU UBICACIÓN</p>
+                                            <input type="text" id="ubicacion" name="ubicacion" placeholder="Ingrese aquí su ubicación">
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger"
+                                                (click)="closePopup()">
+                                            Confirmar
+                                        </button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <!-- AQUÍ FINALIZA LA VENTANA EMERGENTE (MODAL) -->
+                                    <div class='btn-toolbar pull-right'>
+                                        <li><button class="button button-header button-right-home" routerLink="/landing"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Volver a Inicio</button></li>
+                                    <li><button class="button button-header button-right-logout" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Salir</button></li></div>
                                 </ul>
                               <!--AQUÍ VA ESTAR EL BUSCADOR (PENDIENTE) -->
                             </div>
-                          <!-- AQUÍ FINALIZA EL NAV -->
+                            <!-- AQUÍ FINALIZA EL NAV -->
                         </div>
                     </div>
                 </div>

@@ -64,6 +64,8 @@
   text-decoration: none;
 }
 
+/* POSICIONES A LA DERECHA DE LOS BOTONES VOLVER A INICIO & SALIR */
+
 .button-right-logout{
   position: absolute;
   right: 15px

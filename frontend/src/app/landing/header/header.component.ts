@@ -47,7 +47,4 @@ export class HeaderComponent implements OnInit {
   closePopup() {
     this.displayStyle = "none";
   }
-
-
-
 }
