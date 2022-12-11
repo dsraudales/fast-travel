@@ -63,3 +63,13 @@
 .nav-link .hover {
   text-decoration: none;
 }
+
+.button-right-logout{
+  position: absolute;
+  right: 15px
+}
+
+.button-right-home{
+  position: absolute;
+  right: 115px
+}

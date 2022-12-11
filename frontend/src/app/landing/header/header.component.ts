@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit {
 
     }, err => console.log(err));
   }
+  displayStyle = "none";
 
   displayStyle = "none";
 
