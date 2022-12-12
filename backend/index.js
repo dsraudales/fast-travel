@@ -15,7 +15,7 @@ app.use('/api/recorridos', require('./routes/recorridos'));
 app.use('/api/registros', require('./routes/registros'));
 
 
-cron.schedule('1 0 * * *', () => {
+cron.schedule('0 0 * * *', () => {
     recorridos.generarRecorridos();
 });
 

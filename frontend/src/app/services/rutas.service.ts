@@ -11,9 +11,9 @@ export class RutasService {
 
   constructor(private http:HttpClient) { }
 
-  getRecorridos():Observable<any> {
+  getRecorridos(id : number):Observable<any> {
 
-    return this.http.get(this.url+'/api/recorridos/');
+    return this.http.get(this.url+`/api/recorridos/lista/${id}`);
 
   };
 
@@ -33,6 +33,15 @@ export class RutasService {
     return this.http.post(this.url+'/api/registros/alumno/', req_body);
   };
 
+  getUbicaciones():Observable<any> {
+
+    return this.http.get(this.url+`/api/recorridos/ubicaciones`);
+  }
+
+  setUbicacion(req_body : any):Observable<any> {
+
+    return this.http.post(this.url+'/api/registros/actualizarUbicacion/', req_body);
+  }
   nuevoRegistro(req_body : any):Observable<any> {
 
     return this.http.post(this.url+'/api/registros/nuevoregistro/', req_body);

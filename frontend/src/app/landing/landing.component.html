@@ -45,12 +45,14 @@
           <div class="modal-body">
             <p  style="font-weight: bold">ESCOGER UBICACION</p>
             <div class="form-floating">
-              <input type="ubicacion" class="form-control" id="floatingUbicacion" placeholder="Ingrese aquí su ubicación:">
-              <label for="floatingUbicacion">Ingrese aquí su ubicación:</label>
+              <select id="ubicaciones" [formControl]="ubicacion">
+                <option selected disabled>Escoger Ubicación</option>
+                <option *ngFor="let ub of ubicaciones" value="{{ub.ubicacion}}">{{ub.ubicacion}}</option>
+              </select>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="closePopup()">
+            <button type="button" class="btn btn-danger" (click)="cambiarUbicacion()">
               Confirmar
             </button>
           </div>

@@ -70,7 +70,7 @@ export class DetallesComponent implements OnInit {
           if(id<6000){
             this.comprobarEstado();
           }
-          console.log(data);
+          console.log(data.mensaje);
         } else {
           console.log(data.mensaje);
         }

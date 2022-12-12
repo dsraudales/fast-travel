@@ -17,7 +17,7 @@ const getAlumno = async (req, res) => {
     const {correo} = req.body;
     try {
         const pool = await sql.connect(db);
-        const result = await pool.request().query(`SELECT idAlumno, CONCAT(nombre,' ',apellido) nombre from Alumnos WHERE email = '${correo}'`);
+        const result = await pool.request().query(`SELECT idAlumno, ubicacion, CONCAT(nombre,' ',apellido) nombre from Alumnos WHERE email = '${correo}'`);
         if(result.recordset[0]){
             res.send({encontrado:1, mensaje:'Alumno encontrado', alumno:result.recordset});
         }else{
@@ -64,6 +64,21 @@ const comprobarRegistro = async (req, res) => {
     }
 }
 
+const setUbicacion = async (req, res) => {
+    const {id, ubicacion} = req.body;
+    try {
+        const pool = await sql.connect(db);
+        const result = await pool.request().query(`UPDATE Alumnos SET ubicacion = '${ubicacion}' WHERE idAlumno = ${id}`);
+        if(result.rowsAffected==1){
+            res.send({exito:1, mensaje: "ubicacion actualizada"})
+        }else{
+            res.send({exito:0, mensaje:'ubicacion no actualizada'})
+        }
+    } catch (error) {
+        res.send({exito:0,mensaje:'error actualizando ubicación'});
+    }
+}
+
 const getHistorial = async (req, res) => {
     const idAlumno = req.params.id;
     try {
@@ -86,6 +101,7 @@ const getHistorial = async (req, res) => {
 module.exports = {
     getRegistrosById,
     getAlumno,
+    setUbicacion,
     nuevoRegistro,
     comprobarRegistro,
     getHistorial

@@ -2,16 +2,28 @@ const db = require('../config/db.js');
 const sql = require('mssql');
 
 const getRecorridos = async (req, res) => {
+    const id = req.params.id;
     try {
         const pool = await sql.connect(db);
+        const ubicacion = await pool.request().query(`SELECT ubicacion FROM Alumnos WHERE idAlumno = ${id}`);
         const result = await pool.request().query(`select r.*, t.nombreRuta FROM Recorridos r
-        INNER JOIN Rutas t ON r.idRuta = t.idRuta`);
+        INNER JOIN Rutas t ON r.idRuta = t.idRuta WHERE nombreRuta = '${ubicacion.recordset[0].ubicacion}'`);
         res.send({mensaje:'Recorridos encontrados', recorridos:result.recordset});
     } catch (error) {
         res.send({mensaje:'error al buscar recorridos'})
         console.log(err);
     }
 };
+
+const getUbicaciones = async (req, res) => {
+    try {
+        const pool = await sql.connect(db);
+        const resultUbicacion = await pool.request().query(`SELECT ubicacion FROM Alumnos GROUP BY ubicacion ORDER BY COUNT(ubicacion) DESC`);
+        res.send({exito:1, ubicaciones:resultUbicacion.recordset, mensaje:'ubicaciones encontradas'});
+    } catch (error) {
+        res.send({exito:0, mensaje:'error al buscar ubicaciones'});
+    }
+}
 
 const getRutas = async (req, res) => {
     try {
@@ -97,7 +109,18 @@ const getRecorridoByIdOld = async (req, res) => {
 const generarRecorridos = async() => {
     try {
         const pool = await sql.connect(db);
-        //const resultDelete = await pool.request().query("DELETE FROM Recorridos WHERE fecha = CONVERT(date, GETDATE())")
+        const resultRecorridos = await pool.request().query("SELECT * FROM Recorridos WHERE fecha = CONVERT(date, GETDATE())");
+        if(resultRecorridos.recordset.length==0){
+            insertarRecorridos();
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const insertarRecorridos = async() => {
+    try {
+        const pool = await sql.connect(db);
         const resultTotalAlumnos = await pool.request().query("SELECT COUNT(idAlumno) AS Total FROM Alumnos");
         const resultRutas = await pool.request().query("SELECT idRuta, nombreRuta FROM Rutas");
         const resultUbicacion = await pool.request().query(`SELECT ubicacion, 100*COUNT(ubicacion)/${resultTotalAlumnos.recordset[0].Total} AS Total FROM Alumnos GROUP BY ubicacion ORDER BY COUNT(ubicacion) DESC`);
@@ -108,7 +131,7 @@ const generarRecorridos = async() => {
 
         resultUbicacion.recordset.forEach(async (ubicacion, index) => {
             
-            let recorridos = Math.round(20*(ubicacion.Total/100))
+            let recorridos = Math.round(50*(ubicacion.Total/100))
             let id = resultRutas.recordset;
             id = id.findIndex(x => x.nombreRuta == ubicacion.ubicacion);
             for(let i=0; i<recorridos; i++){
@@ -128,8 +151,11 @@ const generarRecorridos = async() => {
     }
 }
 
+
+
 module.exports = {
     getRecorridos,
+    getUbicaciones,
     getRutas,
     getRecorridosPre,
     getRecorridosByRuta,

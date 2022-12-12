@@ -45,7 +45,7 @@ getHistorial(){
 
     if (data) {
       this.allRecorridos = data.historial;
-      console.log(data);
+      console.log(data.mensaje);
     }
     else {
       console.log(data.mensaje);

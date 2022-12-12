@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RutasService } from 'src/app/services/rutas.service';
 
@@ -8,14 +9,15 @@ import { RutasService } from 'src/app/services/rutas.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-
-  constructor(
-    private rutasService: RutasService,
-    private _router : Router
-    ) { }
-
+  
+  ubicacion = new FormControl('');
   alumnoNombre = '';
-  alumnoId = '';
+  alumnoId = 0;
+  ubicaciones = [
+    {
+      ubicacion:''
+    }
+  ]
   allRecorridos = [
     {
       nombreRuta: '',
@@ -24,9 +26,15 @@ export class LandingComponent implements OnInit {
     }
   ];
 
+  constructor(
+    private rutasService: RutasService,
+    private _router : Router
+    ) { }
+
   ngOnInit(): void {
     this.comprobarUsuario();
-    this.getRecorridos();
+    this.getAlumno();
+    this.getUbicaciones();
   }
 
   Detalles(id: string){
@@ -39,8 +47,51 @@ export class LandingComponent implements OnInit {
     }
   }
 
+  getAlumno(){
+    var data = {
+      correo: localStorage.getItem("usuario")!.replace(/"/g,'')
+    }
+    this.rutasService.getAlumno(data).subscribe(data => {
+      if (data) {
+        this.alumnoId = data.alumno[0].idAlumno;
+        this.ubicacion.setValue(data.alumno[0].ubicacion);
+        console.log(data.mensaje);
+        this.getRecorridos();
+      }
+      else {
+        console.log(data.mensaje);
+      }
+
+    }, err => console.log(err));
+  }
+
+  getUbicaciones(){
+    this.rutasService.getUbicaciones().subscribe(data => {
+      if(data.exito){
+        this.ubicaciones = data.ubicaciones;
+        console.log(data.mensaje);
+      }else{
+        console.log(data.mensaje);
+      }
+    }, err => console.log(err));
+  }
+
+  cambiarUbicacion(){
+    let datos = {
+      id :this.alumnoId,
+      ubicacion: this.ubicacion.value
+    }
+    //console.log(datos)
+    this.rutasService.setUbicacion(datos).subscribe(data =>{
+      console.log(data.mensaje);
+      this.getRecorridos();
+      
+    }, err => console.log(err));
+    this.closePopup();
+  }
+
   getRecorridos(){
-    this.rutasService.getRecorridos().subscribe(data => {
+    this.rutasService.getRecorridos(this.alumnoId).subscribe(data => {
 
       if (data) {
         this.allRecorridos = data.recorridos;

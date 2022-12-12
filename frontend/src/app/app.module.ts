@@ -13,6 +13,7 @@ import { HeaderComponent } from './landing/header/header.component';
 import { InteractionType, IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 import { ModalUbicacionComponent } from './modal-ubicacion/modal-ubicacion.component';
 import { HistorialComponent } from './historial/historial.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
@@ -37,6 +38,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
